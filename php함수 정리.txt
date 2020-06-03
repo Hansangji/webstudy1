@@ -1,0 +1,32 @@
+mysqli_connect('아이피', '아이디', '비밀번호', 'DB명'): php에서 mysql을 연결해주는 함수
+session_start(): 세션 시작
+session_destroy(): 세션 종료
+isset($변수): 변수가 설정되었는지 확인 가능
+$_GET['변수']: GET방식으로 데이터 전송
+mysqli_query(연결 객체, 쿼리): 
+tip: query란? 문의, 의문, 질의이라는 뜻을 가지고 있다.
+mysqli_fetch_array('리절트 셋'): mysqli_query를 통해 얻은 리절트 셋에서 레코드를 1개씩
+리턴해주는 함수(쿼리의 결과가 필요할 때 사용)
+require('폴더/파일이름.php'); 지정한 파일의 내용을 받아온다.
+require_once('폴더/파일이름.php');  
+require랑 기능은 같지만 중복 실행될 경우 한개만 실행해서 에러를 방지한다.
+require_once가 더 자주 쓰인다.
+file_put_contents(파일경로, 입력할 내용); : 파일을 저장
+file_get_contents(불러올 파일 경로); :파일을 불러옴.
+
+xss(cross stie scripting)
+<script>alert(''); </script>
+<script>링크</script>
+같은 스크립트 언어를 넣어서 다른 사이트로 이동하게 하거나 사이트에 말풍선(?)을 띄우게
+하는 등 개발자의 의도에서 벗어나게 한다.
+방어 방법
+출력을 당담하는 코드에 htmlspecialchars()함수를 씌어준다. 그럼 스크립트 언어를 언어가 아닌
+단순한 글자로 판단한다.
+
+보안 파일 경로 보호
+공격자가 서버 컴퓨터의 여러가지 정황을 파악 후 Data폴더위에 비밀번호 관련 폴더가 있단
+사실을 파악해서 URL에 파일경로를 입력하여 비밀번호를 훔쳐가는 경우
+EX)http://127.0.0.1/board.php?id=../pw.txt  (..은 부모폴더를 나타냄) 
+
+방어 방법
+basename(); :파일의 경로에서 파일명만 추출해내는 함수
